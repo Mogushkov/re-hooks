@@ -13,18 +13,18 @@ function Details({info}) {
         return () => setItem(null)
     }, [info.id]);
 
+    if(!item) {
+        return <p className="loading">Loading...</p>
+    }
     return (
-        <>
-        {!item ? <p className="loading">Loading...</p> : 
-        <ul className="details">
-            <li><img src={item.avatar} alt={item.name}></img></li>
-            <li>{item.name}</li>
-            <li>City: {item.details.city}</li>
-            <li>Company: {item.details.company}</li>
-            <li>Position: {item.details.position}</li>
+        
+    <ul className="details">
+        <li><img src={item.avatar} alt={item.name}></img></li>
+        <li>{item.name}</li>
+        <li>City: {item.details.city}</li>
+        <li>Company: {item.details.company}</li>
+        <li>Position: {item.details.position}</li>
         </ul>
-        }   
-        </>    
     )
 }
 
